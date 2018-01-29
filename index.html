@@ -1,0 +1,469 @@
+<!Doctype HTML>
+<html lang="pl">
+
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content = "width=device-width, initial-scale=1">
+<title> Klasyfikacja skoczków narciarskich</title>
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+.nav{
+
+max-width: 1000px;
+margin-left: auto;
+
+}
+</style>
+
+
+</head>
+<body ng-app="Aplikacja" >
+
+<div class="nav">
+<container ng-controller="appCtrl">
+	<div class="row">
+		<div class="col-sm-8">
+			<h1 class="text-center">Klasyfikacja skoczków narciarskich</h1>
+				<br>
+
+			<div class="input-group">
+				<span class="input-group-addon">Szukaj: </span>
+				<input type="text" class="form-control" placeholder="Kogo szukasz?" ng-model="wyszukiwarka">
+			</div>
+			<br>
+			<div class="table-responsive">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th ng-repeat="naglowek in [
+							'Pozycja', 'Imię i Nazwisko','Kraj','Punkty']">
+							{{naglowek}}
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat='skoczek in skoczkowie 
+						| filter:wyszukiwarka'>
+							<td>{{skoczek.Rank}}</td>
+							<td>{{skoczek.Athlete}}</td>
+							<td>{{skoczek.Country}}</td>
+							<td>{{skoczek.Points}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</container>
+</div>
+
+<script src="angular.min.js"></script>
+<script>
+	var app = angular.module('Aplikacja', []);
+	app.controller('appCtrl', [ '$scope', '$filter', function($scope, $filter){
+		$scope.skoczkowie=[
+{
+	"Rank": 1,
+   "Athlete": "STOCH Kamil",
+   "Country": "POL",
+   "Points": 1067
+ },
+ {
+   "Rank": 2,
+   "Athlete": "TANDE Daniel Andre",
+   "Country": "NOR",
+   "Points": 953
+ },
+ {
+   "Rank": 3,
+   "Athlete": "KRAFT Stefan",
+   "Country": "AUT",
+   "Points": 920
+ },
+ {
+   "Rank": 4,
+   "Athlete": "PREVC Domen",
+   "Country": "SLO",
+   "Points": 867
+ },
+ {
+   "Rank": 5,
+   "Athlete": "HAYBOECK Michael",
+   "Country": "AUT",
+   "Points": 604
+ },
+ {
+   "Rank": 6,
+   "Athlete": "KOT Maciej",
+   "Country": "POL",
+   "Points": 597
+ },
+ {
+   "Rank": 7,
+   "Athlete": "WELLINGER Andreas",
+   "Country": "GER",
+   "Points": 578
+ },
+ {
+   "Rank": 8,
+   "Athlete": "FETTNER Manuel",
+   "Country": "AUT",
+   "Points": 545
+ },
+ {
+   "Rank": 9,
+   "Athlete": "EISENBICHLER Markus",
+   "Country": "GER",
+   "Points": 518
+ },
+ {
+   "Rank": 10,
+   "Athlete": "ZYLA Piotr",
+   "Country": "POL",
+   "Points": 464
+ },
+ {
+   "Rank": 11,
+   "Athlete": "FREITAG Richard",
+   "Country": "GER",
+   "Points": 387
+ },
+ {
+   "Rank": 12,
+   "Athlete": "PREVC Peter",
+   "Country": "SLO",
+   "Points": 349
+ },
+ {
+   "Rank": 13,
+   "Athlete": "STJERNEN Andreas",
+   "Country": "NOR",
+   "Points": 330
+ },
+ {
+   "Rank": 14,
+   "Athlete": "FREUND Severin",
+   "Country": "GER",
+   "Points": 309
+ },
+ {
+   "Rank": 15,
+   "Athlete": "KOFLER Andreas",
+   "Country": "AUT",
+   "Points": 306
+ },
+ {
+   "Rank": 16,
+   "Athlete": "DESCOMBES SEVOIE Vincent",
+   "Country": "FRA",
+   "Points": 295
+ },
+ {
+   "Rank": 17,
+   "Athlete": "KLIMOV Evgeniy",
+   "Country": "RUS",
+   "Points": 273
+ },
+ {
+   "Rank": 18,
+   "Athlete": "TEPES Jurij",
+   "Country": "SLO",
+   "Points": 249
+ },
+ {
+   "Rank": 19,
+   "Athlete": "KUBACKI Dawid",
+   "Country": "POL",
+   "Points": 247
+ },
+ {
+   "Rank": 20,
+   "Athlete": "GEIGER Karl",
+   "Country": "GER",
+   "Points": 246
+ },
+ {
+   "Rank": 21,
+   "Athlete": "LEYHE Stephan",
+   "Country": "GER",
+   "Points": 223
+ },
+ {
+   "Rank": 22,
+   "Athlete": "JOHANSSON Robert",
+   "Country": "NOR",
+   "Points": 191
+ },
+ {
+   "Rank": 23,
+   "Athlete": "KASAI Noriaki",
+   "Country": "JPN",
+   "Points": 165
+ },
+ {
+   "Rank": 24,
+   "Athlete": "ITO Daiki",
+   "Country": "JPN",
+   "Points": 129
+ },
+ {
+   "Rank": 25,
+   "Athlete": "FANNEMEL Anders",
+   "Country": "NOR",
+   "Points": 120
+ },
+ {
+   "Rank": 26,
+   "Athlete": "HULA Stefan",
+   "Country": "POL",
+   "Points": 110
+ },
+ {
+   "Rank": 27,
+   "Athlete": "DAMJAN Jernej",
+   "Country": "SLO",
+   "Points": 90
+ },
+ {
+   "Rank": 28,
+   "Athlete": "ZIOBRO Jan",
+   "Country": "POL",
+   "Points": 89
+ },
+ {
+   "Rank": 29,
+   "Athlete": "STURSA Vojtech",
+   "Country": "CZE",
+   "Points": 88
+ },
+ {
+   "Rank": 30,
+   "Athlete": "SCHLIERENZAUER Gregor",
+   "Country": "AUT",
+   "Points": 80
+ },
+ {
+   "Rank": 31,
+   "Athlete": "KOUDELKA Roman",
+   "Country": "CZE",
+   "Points": 75
+ },
+ {
+   "Rank": 31,
+   "Athlete": "JANDA Jakub",
+   "Country": "CZE",
+   "Points": 75
+ },
+ {
+   "Rank": 33,
+   "Athlete": "TAKEUCHI Taku",
+   "Country": "JPN",
+   "Points": 70
+ },
+ {
+   "Rank": 34,
+   "Athlete": "PREVC Cene",
+   "Country": "SLO",
+   "Points": 67
+ },
+ {
+   "Rank": 35,
+   "Athlete": "SCHIFFNER Markus",
+   "Country": "AUT",
+   "Points": 57
+ },
+ {
+   "Rank": 36,
+   "Athlete": "FORFANG Johann Andre",
+   "Country": "NOR",
+   "Points": 52
+ },
+ {
+   "Rank": 36,
+   "Athlete": "KORNILOV Denis",
+   "Country": "RUS",
+   "Points": 52
+ },
+ {
+   "Rank": 38,
+   "Athlete": "BOYD-CLOWES Mackenzie",
+   "Country": "CAN",
+   "Points": 44
+ },
+ {
+   "Rank": 39,
+   "Athlete": "WANK Andreas",
+   "Country": "GER",
+   "Points": 37
+ },
+ {
+   "Rank": 40,
+   "Athlete": "AMMANN Simon",
+   "Country": "SUI",
+   "Points": 34
+ },
+ {
+   "Rank": 41,
+   "Athlete": "COLLOREDO Sebastian",
+   "Country": "ITA",
+   "Points": 29
+ },
+ {
+   "Rank": 42,
+   "Athlete": "HLAVA Lukas",
+   "Country": "CZE",
+   "Points": 26
+ },
+ {
+   "Rank": 43,
+   "Athlete": "MAEAETTAE Jarkko",
+   "Country": "FIN",
+   "Points": 24
+ },
+ {
+   "Rank": 43,
+   "Athlete": "AHONEN Janne",
+   "Country": "FIN",
+   "Points": 24
+ },
+ {
+   "Rank": 45,
+   "Athlete": "BICKNER Kevin",
+   "Country": "USA",
+   "Points": 20
+ },
+ {
+   "Rank": 46,
+   "Athlete": "POLASEK Viktor",
+   "Country": "CZE",
+   "Points": 18
+ },
+ {
+   "Rank": 46,
+   "Athlete": "VANCURA Tomas",
+   "Country": "CZE",
+   "Points": 18
+ },
+ {
+   "Rank": 48,
+   "Athlete": "HILDE Tom",
+   "Country": "NOR",
+   "Points": 16
+ },
+ {
+   "Rank": 49,
+   "Athlete": "VASSILIEV Dimitry",
+   "Country": "RUS",
+   "Points": 15
+ },
+ {
+   "Rank": 50,
+   "Athlete": "SIEGEL David",
+   "Country": "GER",
+   "Points": 12
+ },
+ {
+   "Rank": 51,
+   "Athlete": "SEMENIC Anze",
+   "Country": "SLO",
+   "Points": 11
+ },
+ {
+   "Rank": 52,
+   "Athlete": "LANISEK Anze",
+   "Country": "SLO",
+   "Points": 10
+ },
+ {
+   "Rank": 53,
+   "Athlete": "ZNISZCZOL Aleksander",
+   "Country": "POL",
+   "Points": 9
+ },
+ {
+   "Rank": 53,
+   "Athlete": "SAKUYAMA Kento",
+   "Country": "JPN",
+   "Points": 9
+ },
+ {
+   "Rank": 53,
+   "Athlete": "LARINTO Ville",
+   "Country": "FIN",
+   "Points": 9
+ },
+ {
+   "Rank": 56,
+   "Athlete": "AIGNER Clemens",
+   "Country": "AUT",
+   "Points": 8
+ },
+ {
+   "Rank": 57,
+   "Athlete": "ALTENBURGER Florian",
+   "Country": "AUT",
+   "Points": 4
+ },
+ {
+   "Rank": 57,
+   "Athlete": "MURANKA Klemens",
+   "Country": "POL",
+   "Points": 4
+ },
+ {
+   "Rank": 57,
+   "Athlete": "BRESADOLA Davide",
+   "Country": "ITA",
+   "Points": 4
+ },
+ {
+   "Rank": 60,
+   "Athlete": "GRANERUD Halvor Egner",
+   "Country": "NOR",
+   "Points": 3
+ },
+ {
+   "Rank": 60,
+   "Athlete": "PAVLOVCIC Bor",
+   "Country": "SLO",
+   "Points": 3
+ },
+ {
+   "Rank": 62,
+   "Athlete": "TOLLINGER Elias",
+   "Country": "AUT",
+   "Points": 2
+ },
+ {
+   "Rank": 63,
+   "Athlete": "NURMSALU Kaarel",
+   "Country": "EST",
+   "Points": 1
+ },
+ {
+   "Rank": 63,
+   "Athlete": "GLASDER Michael",
+   "Country": "USA",
+   "Points": 1
+ },
+ {
+   "Rank": 63,
+   "Athlete": "HUBER Daniel",
+   "Country": "AUT",
+   "Points": 1
+ },
+ {
+   "Rank": 63,
+   "Athlete": "KARLEN Gabriel",
+   "Country": "SUI",
+   "Points": 1
+ }
+ ]
+	}]);
+</script>
+<script src="bootstrap.min.js"></script>
+<script src="jquery-3.1.1.min.js"></script>
+
+</body>
+</html>
